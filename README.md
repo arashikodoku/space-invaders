@@ -180,7 +180,10 @@ farm.add(donkey);
 
 
 //Space invaders - dziedziczenie: przesłanianie metod, enkapsulacja, interfejsy
-## Lekcja 2 - Enkapsulacja
+## Lekcja 2 - Enkapsulacja, interfejsy
+
+###Enkapsulacja
+
 Enkapsulacja, inaczej hermetyzacja jest ukrywaniem szczegółów implementacji oraz uniemożliwieniem zmiany
 stanu obiektu przez inne klasy. Gwarantuje nam, że jedynym obiektem odpowiedzialnym za zmianę stanu jest sam obiekt
 i nie ma możliwości modyfikacji jego stanu z zewnątrz. 
@@ -231,6 +234,76 @@ public abstract class Shoot {
 
 #####Zadanie - zidentyfikować i poprawić błąd związany z enkapsulacją.
 
+###Interfejsy
+Interfejs jest zbiorem metod wyznaczających pewną, powiązaną ze sobą funkcjonalność. Do javy 8 był to 
+tylko zbiór nagłówków metod, bez implementacji, przykłądem nieche będzie `Screen` z libgdx:
+
+```java
+/** <p>
+ * Represents one of many application screens, such as a main menu, a settings menu, the game screen and so on.
+ * </p>
+ * <p>
+ * Note that {@link #dispose()} is not called automatically.
+ * </p>
+ * @see Game */
+public interface Screen {
+	
+	/** Called when this screen becomes the current screen for a {@link Game}. */
+	public void show ();
+	
+	/** Called when the screen should render itself.
+	 * @param delta The time in seconds since the last render. */
+	public void render (float delta);
+	
+
+	/** @see ApplicationListener#resize(int, int) */
+	public void resize (int width, int height);
+	
+
+	/** @see ApplicationListener#pause() */
+	public void pause ();
+	
+
+	/** @see ApplicationListener#resume() */
+	public void resume ();
+	
+
+	/** Called when this screen is no longer the current screen for a {@link Game}. */
+	public void hide ();
+	
+
+	/** Called when this screen should release all resources. */
+	public void dispose ();
+	
+}
+```
+
+Od javy 8 interfejsy mogą mieć domyslną implementację metod:
+```java
+public interface A {
+    default void foo(){
+       System.out.println("Calling A.foo()");
+    }
+}
+```
+
+Jeśli klasa implementuje interfejs musi ona zapewnić implementację każdej metody w nim zawartej 
+(wyjątkiem jest klasa abstrakcyjna). Każda klasa może implementować dowolną liczbę interfejsów. Jest 
+to jedna z głównych różnic między klasą abstrakcyjną a interfejsem. Drugą jest ograniczenie, że interfejs
+nie może zawierać pól. Interfejsy ułatwiają enkapsulację, w klasie możemy mieć pole będące interfacem,
+i posługiwać się nim bez wiedzy jakiej konkretnie klasy faktycznej używamy. Interesuje nas czynność jaką
+interfejs umożliwia wykokanie, a nie sama implementacja. Poprawne używanie interfejsów sprawia, żę kod jest
+czeytelniejszy i bardizej przejrzysty, oraz posiada mniej zależności pomiędzy klasami.
+
+Dobrym przykładem interfejsu jest ``Screen`` z powyższego listingu. Mamy klasa `Game`, która zarządza 
+poszczególnymi ekranami, za pomocą metody ``setScreen()``, dzięki czemu mamy wydzieloną logikę każdego 
+ekranu w osobnym miejscu. Natomiast samej klasy ``Game`` nie interesuje implementacja każdego ekranu z oosbna.
+Jest to szczegół implementacyjny na poziomie pojedynczego ekranu.
+
+#####Zadanie - napisać i podpiąć ekran po wygraniu gry.
+
+###Elementy libgdx
+//todo
 
 ## Lekcja 3 - Animacja postaci
 

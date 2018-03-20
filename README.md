@@ -180,8 +180,11 @@ farm.add(donkey);
 
 
 //Space invaders - dziedziczenie: przesłanianie metod, enkapsulacja, interfejsy
+## Lekcja 2 - Enkapsulacja
 
-## Lekcja 2 - Animacja postaci
+
+
+## Lekcja 3 - Animacja postaci
 
 Przez postać rozumiemy rakiety, obcych ale także pociski.
 
@@ -191,13 +194,13 @@ W naszym przykładzie wykorzystamy technike stosowaną przez naszych dziadków ;
 
 //todo wczytywanie sprite, przyklad
 
-## Lekcja 3 - Poruszanie postacią
+## Lekcja 4 - Poruszanie postacią
 
-## Lekcja 4 - Strzelanie
+## Lekcja 5 - Strzelanie
 
-## Lekcja 5 - Wykrywanie kolizji
+## Lekcja 6 - Wykrywanie kolizji
 
-## Lekcja 6 -
+## Lekcja 7 -
 
 # Słownik
 * Repozytorium - odnosi się do systemów kontroli wersji, w tym wypadku GIT. Repozytorium przypomina bibliotekę z wszystkimi wersjami napisanego programu.

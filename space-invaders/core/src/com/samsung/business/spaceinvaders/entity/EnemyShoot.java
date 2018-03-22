@@ -14,6 +14,7 @@ public class EnemyShoot extends Shoot {
 
     @Override
     public void updateState() {
+
         this.position.y -= 200 * Gdx.graphics.getDeltaTime();
     }
 

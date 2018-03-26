@@ -15,8 +15,8 @@ public class GameOverScreen extends AbstractScreen{
     private TouchInput touchInput;
 
     public GameOverScreen(SpaceInvaders spaceInvaders) {
-        font = new BitmapFont();
-
+        font = new BitmapFont(Gdx.files.internal("Font.fnt"), Gdx.files.internal("Font.png"),
+                false, true);
         // tell the camera to update its matrices.
         camera = new OrthographicCamera();
         camera.setToOrtho(false, DisplayInfo.getWidth(), DisplayInfo.getHeight());

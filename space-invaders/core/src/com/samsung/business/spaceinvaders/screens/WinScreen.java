@@ -18,8 +18,9 @@ public class WinScreen extends AbstractScreen{
 
     public WinScreen(SpaceInvaders spaceInvaders) {
         this.spaceInvaders = spaceInvaders;
-        font = new BitmapFont();
 
+        font = new BitmapFont(Gdx.files.internal("Font.fnt"), Gdx.files.internal("Font.png"),
+                false, true);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, DisplayInfo.getWidth(), DisplayInfo.getHeight());
         this.touchInput = new TouchInput(camera);

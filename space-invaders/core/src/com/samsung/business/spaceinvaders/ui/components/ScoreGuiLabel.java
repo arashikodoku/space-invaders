@@ -10,7 +10,7 @@ import com.samsung.business.spaceinvaders.ui.DisplayInfo;
 
 public class ScoreGuiLabel {
     private final static int MARGIN_TOP = 10;
-    private final static int MARGIN_LEFT = 130;
+    private final static int MARGIN_RIGHT = 130;
     private int score;
 
     public ScoreGuiLabel() {
@@ -24,7 +24,7 @@ public class ScoreGuiLabel {
 
     public void render(SpriteBatch batch, float delta){
         BitmapFont font = new BitmapFont();
-        font.draw(batch, String.valueOf(score),  MARGIN_LEFT, DisplayInfo.getHeight() - MARGIN_TOP);
+        font.draw(batch, String.valueOf(score),  MARGIN_RIGHT, DisplayInfo.getHeight() - MARGIN_TOP);
     }
 
 }

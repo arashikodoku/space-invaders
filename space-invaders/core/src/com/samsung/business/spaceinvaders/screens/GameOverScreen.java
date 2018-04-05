@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.samsung.business.spaceinvaders.SpaceInvaders;
+import com.samsung.business.spaceinvaders.manager.BestScore;
 import com.samsung.business.spaceinvaders.ui.DisplayInfo;
 import com.samsung.business.spaceinvaders.ui.TouchInput;
 
@@ -22,6 +23,9 @@ public class GameOverScreen extends AbstractScreen{
         camera.setToOrtho(false, DisplayInfo.getWidth(), DisplayInfo.getHeight());
         this.spaceInvaders = spaceInvaders;
         this.touchInput = new TouchInput(camera);
+        if(spaceInvaders.getScore().getValue()> BestScore.getInstance().getBestResult()){
+            BestScore.getInstance().putBestResult(spaceInvaders.getScore().getValue());
+        }
     }
 
     @Override

@@ -12,6 +12,7 @@ import com.samsung.business.spaceinvaders.manager.GraphicsManager;
 import com.samsung.business.spaceinvaders.manager.ShootManager;
 import com.samsung.business.spaceinvaders.ui.DisplayInfo;
 import com.samsung.business.spaceinvaders.ui.TouchInput;
+import com.samsung.business.spaceinvaders.ui.components.BestScoreGuiLabel;
 import com.samsung.business.spaceinvaders.ui.components.ScoreGuiLabel;
 
 public class GameScreen extends AbstractScreen {
@@ -26,6 +27,7 @@ public class GameScreen extends AbstractScreen {
     private Invasion invasion;
 
     private ScoreGuiLabel scoreGuiLabel;
+    private BestScoreGuiLabel bestScoreGuiLabel;
     private TouchInput touchInput;
 
     private float animationTime;
@@ -33,6 +35,7 @@ public class GameScreen extends AbstractScreen {
     public GameScreen(SpaceInvaders spaceInvaders) {
         this.spaceInvaders = spaceInvaders;
         scoreGuiLabel = new ScoreGuiLabel();
+        bestScoreGuiLabel = new BestScoreGuiLabel();
         create();
     }
 
@@ -113,6 +116,7 @@ public class GameScreen extends AbstractScreen {
         shootManager.render(spaceInvaders.batch, animationTime);
         invasion.render(spaceInvaders.batch, animationTime);
         scoreGuiLabel.render(spaceInvaders.batch, animationTime);
+        bestScoreGuiLabel.render(spaceInvaders.batch, animationTime);
 
         spaceInvaders.batch.end();
 
